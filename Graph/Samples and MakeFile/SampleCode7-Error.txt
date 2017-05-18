@@ -1,0 +1,36 @@
+undirectedGraph Relations{
+		
+	/* Human relationships*/
+	
+	Vertex v0,v1,v2,v4;
+	Edge e0,e1,e2;
+	
+	v0->"name"="Emre";
+	v0->"age"=21;
+	v0->"job"="programmer";
+
+	
+	v1->"name"="Doðukan";
+	v1->"age"=20;
+	v1->"job"="programmer";
+
+	v2->"name"="Betül";
+	v2->"age"=14;
+	v2->"job"="Student";
+	
+	v3->"name"="Ayda";
+	v3->"age"=17;
+	v3->"job"="Student";
+	
+	e0 = v0:>v1;
+	e1 = v0::v2;
+	e2 = v1::v3;
+
+	e0->"relation" = "friend";
+	e1->"relation" = "sibling";
+	e2->"relation" = "sibling";
+	
+
+
+}
+

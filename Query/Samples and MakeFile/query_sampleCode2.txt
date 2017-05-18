@@ -1,0 +1,4 @@
+Query q5 = {vertex->"Subscription_duration"=="premiumDuration"  ^ edge->"type"=="Main_owner"};
+dGraph.q5;
+Query q6 = {vertex->"type"== "shared};
+Query q7 = {vertex->hasProp(asda)};

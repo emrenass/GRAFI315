@@ -1,0 +1,46 @@
+
+directedGraph Accounts{
+
+	Vertex c1,c2,c3,c4; // customers
+	Vertex a0,a1,a2;  // accounts	
+	
+	Edge e0,e1,e2,e3;
+
+	
+	c1->"id"=0001;
+	c1->"name"="Emre";
+	c1->"Subscription_duration"= 211;
+	
+	c2->"id"=0002;
+	c2->"name"="Dogukan";
+	c2->"Subscription_duration"= 132;
+	
+	c3->"id"=0003;
+	c3->"name"="Armagan";
+	c3->"Subscription_duration"= 40;
+	
+	c4->"id"=0004;
+	c4->"name"="Bugra";
+	c4->"Subscription_duration"= 538;
+
+	a0->"balance"= 12.1;
+	a0->"type"="Shared";
+
+	a1->"balance"= 893130.97;
+	a1->"type"="Personal";
+
+	a2->"balance"= 999999999.0;
+	a2->"type"="Personal";
+	
+	e0= c1:>a0;
+	e1= c3:>a0;
+	e2= c2:>a1;
+	e3= c4:>a2;	
+
+	e0->"type" = "Main_owner";
+	e1->"type" = "Secondary_owner";
+	e2->"type" = "Main_owner";
+	e3->"type" = "Main_owner";
+
+
+} 

@@ -1,0 +1,21 @@
+SampleCode1.txt - Successfully parsed
+
+SampleCode2.txt - Successfully parsed
+
+SampleCode3.txt - Successfully parsed
+
+SampleCode4-Error.txt - error at line 10: Empty property error.
+			error at line 18: Statement not finished, ';' expected.
+			Parsing completed with 2 errors
+
+SampleCode5-Error.txt - error at line 13: Comma needed.
+			Parsing completed with 1 errors
+
+SampleCode6-Error.txt - error at line 33: Relation type does not match, ':>' expected.
+			Parsing completed with 1 errors
+
+SampleCode7-Error.txt - error at line 25: Relation type does not match, '::' expected.
+			Parsing completed with 1 errors
+
+SampleCode8-Error.txt - error at line 25: Unconnected Vertex.
+			Parsing completed with 1 errors

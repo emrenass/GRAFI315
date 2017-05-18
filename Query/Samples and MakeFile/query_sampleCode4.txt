@@ -1,0 +1,4 @@
+int number = 123;
+float fNumber = 12.1;
+String str = "This is a string";
+boolean bool = false;

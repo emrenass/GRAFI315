@@ -1,0 +1,12 @@
+boolean check_bool = false;
+Query q1 = {edge->hasProp(asda) };
+Query q3 = {vertex->"name"=="Dogukan" | edge->"relation"=="sibling"};
+Query q4 = q3;
+uGraph.q4;
+Query q5 = {vertex->"Subscription_duration"+"premiumDuration"  ^ edge->"type"=="Main_owner"};
+dGraph.q5;
+Query q6 = {vertex->"type"== "shared};
+Query q7 = {vertex->hasProp(asda)};
+Query q8 = q6^(q3^(q7|q3)^q3);
+dGraph.q8; //finds shared account users
+

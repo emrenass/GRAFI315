@@ -1,0 +1,88 @@
+program: statement_list
+
+statement_list: QUERY ID ASSIGN LCBRACKET query_expr_list RCBRACKET ENDSTATEMENT statement_list
+			|	QUERY ID ASSIGN expr_list ENDSTATEMENT statement_list
+			|	ID DOT ID ENDSTATEMENT statement_list
+			|	ID ASSIGN LCBRACKET query_expr_list RCBRACKET ENDSTATEMENT {yyerror("Query keyword missing.");} statement_list		
+			|	QUERY ID ENDSTATEMENT  {yyerror("Illegal statement expression.");} statement_list
+			|	QUERY ID ASSIGN query_expr_list RCBRACKET ENDSTATEMENT {yyerror("Statement not finished, '}' expected");} statement_list
+			|	QUERY ID ASSIGN LCBRACKET query_expr_list ENDSTATEMENT {yyerror("Statement not finished, '{' expected");} statement_list
+			|	assignment statement_list
+			|
+
+			
+query_expr_list:  	query_expr operator query_expr_list
+			|	NOT LPARAN query_expr RPARAN query_expr_list
+			|	query_expr  
+			| 	query_expr query_expr_list {yyerror("Operator Missing.");}
+				
+query_expr: edge_expr 
+		|vertex_expr 
+
+
+vertex_expr: VERTEX PROPERTYSIGN property  
+		
+edge_expr: EDGE PROPERTYSIGN property 
+
+assignment:	primitive_keys ID ASSIGN primitive_types ENDSTATEMENT
+
+property: STRINGLITERAL bool_operator primitive_types 
+		|	STRINGLITERAL bool_operator ID 
+		|	function_expr
+		|	STRINGLITERAL bool_operator arithmatic_expr
+
+arithmatic_expr: primitive_types arithmatic_expr_tail 
+		|	arithmatic_expr  arithmatic_expr_tail 
+
+arithmatic_expr_tail: arithmatic primitive_types arithmatic_expr_tail
+		|	arithmatic arithmatic_expr_tail
+		|	primitive_types arithmatic_expr_tail
+		|
+
+function_expr: function_word LPARAN ID RPARAN  
+		|	function_word LPARAN ID {yyerror("Illegal function declaration, ')' expected");} 
+		|	function_word ID RPARAN	{yyerror("Illegal function declaration, '(' expected");}
+
+expr_list: ID expr_list_tail 
+		|	{yyerror("No expression declared.");} 
+		
+expr_list_tail: operator ID expr_list_tail 
+		|	operator LPARAN ID expr_list_tail  
+		|	operator ID expr_list_tail 
+		|	RPARAN expr_list_tail	 
+		|	 
+primitive_keys: INTKEY
+		| FLOATKEY
+		| BOOLKEY
+		| STRINGKEY
+
+primitive_types: STRINGLITERAL 
+		| INT 
+		| FLOAT 
+		| BOOL
+
+function_word: ABS 
+	|HASPROP
+	|ROUNDUP
+	|ROUNDDOWN 
+			
+operator: CONCAT 
+		| OR 
+		| MUL
+
+not: NOT 
+	|  
+
+bool_operator: EQUALITYCHECK
+		|LESSTHAN 
+		|GREATERTHAN
+		|LTE
+		|GTE
+		|arithmatic {yyerror("Boolean expression is expected for queries");} 
+		
+arithmatic: PLUS 
+		|MINUS 
+		|MUL 
+		|DIV 
+			
+	

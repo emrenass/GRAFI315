@@ -1,0 +1,23 @@
+query_sampleCode1.txt: Successfully parsed
+
+query_sampleCode2.txt: Successfully parsed
+
+query_sampleCode3.txt: Successfully parsed
+
+query_sampleCode4.txt: Successfully parsed
+
+query_sampleCode5-Error: error at line 2: Query keyword missing.
+		     	 Parsing completed with 1 errors
+
+query_sampleCode6-Error: error at line 4: Illegal statement expression.
+			 Parsing completed with 1 errors
+
+query_sampleCode7-Error: error at line 3: Operator Missing.
+			 Parsing completed with 1 errors
+
+query_sampleCode8-Error: error at line 9: Illegal function declaration, '(' expected
+			 Parsing completed with 1 errors
+
+query_sampleCode9-Error: error at line 6: Boolean expression is expected for queries
+			 Parsing completed with 1 errors
+
